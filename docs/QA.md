@@ -18,7 +18,18 @@
    - 参数:
      - `id`: 数据源ID(如"zhihu")
      - `latest`: 是否强制获取最新内容(true/false)
-   - 返回格式: JSON
+     - `format`: 返回格式(json/rss/atom)，默认为json
+   - 返回格式:
+     - JSON: application/json
+     - RSS: application/rss+xml
+     - Atom: application/atom+xml
+   - 示例:
+     ```
+     GET /api/s?id=zhihu&format=rss
+     ```
+     ```
+     GET /api/s?id=weibo&format=atom
+     ```
      ```ts
      interface SourceResponse {
        status: "success" | "cache"
